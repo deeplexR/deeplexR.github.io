@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>構式之無所不在：</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="謝舒凱 (Graduate Institute of Linguistics, NTU)" />
+    <meta name="date" content="2021-03-05" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="presentation.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <code>構式</code>之無所不在：
+## 認知與計算觀點 (Version: 0.2)
+### 謝舒凱 (Graduate Institute of Linguistics, NTU)
+### 2021-03-05 <br> <br> <br>
+
+---
+
+
+&lt;style type="text/css"&gt;
+body, td {
+  font-size: 16px;
+}
+code.r{
+  font-size: 14px;
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+layout: true
+
+# Language and Ontology Processing | 語言即計算
+---
+
+語言學有理論嗎 🙈
+
+
+- THE LEXICON is THE MATRIX ㊙️：需要想像一個終極的研究對象
+  - .font70[構詞、詞意區分、概念知識本體、變異與變遷、情意處理與社會網路]
+  
+--
+
+- 語言研究的時代精神 Zeitgeist ：
+
+  - 社群媒體促生不同語言版本的民主化 &lt;br&gt;
+  .font60[&lt;font color="darkblue"&gt;歷史文本到言談多模溝通 &lt;/font&gt;]
+  - 語言、資訊與實在：規約設計 (rule/constraint-based) 到使用觀察 (usage-based) &lt;br&gt;
+  .font60[&lt;font color="darkblue"&gt; 原子到量子&lt;/font&gt;]
+  - 人際到人機互動 &lt;br&gt;
+  .font60[&lt;font color="darkblue"&gt; 符碼規則到向量空間&lt;/font&gt;]
+
+  
+---
+
+layout: true
+
+# Plan
+
+---
+
+- Introduction to `construction.grammar`
+
+- Corpus-based (association) measures
+
+- Computational construction grammar
+
+- Conclusion and on-going works
+
+
+---
+
+layout: false
+
+class: inverse, center, middle
+
+# *Introduction*
+
+
+
+---
+
+# Language in use | 生活中的 (新) 語言使用
+
+(Goldberg, 2019)
+
+.pull-left[
+![](images/novel.constructions.png)
+] 
+
+--
+.pull-right[
+![](images/novel.odd.png)
+]
+
+--
+- The **explain me this** puzzle: USAGE-BASED CONSTRUCTIONIST APPROACH to language.
+&lt;!-- partial productivity of constructions--&gt;
+
+
+
+
+---
+
+# 先從一個「圖文不符」的例子講起
+#### 怎麼說一個人帥？
+
+`X 成這樣是要怎麼辦啦`、`要不要這麼 X 啦`、`有 XX 的感覺`、`X 的不要不要的`
+
+.pull-right[
+![](images/handsome.png)]
+
+--
+
+&lt;!-- Mike：`也是很好意思`--&gt;
+
+
+
+---
+# 語言表達單位的「連續」
+
+
+自由語到熟語
+
+- 單字詞 ("`愛`")、雙字詞 ("`愛情`")、三字詞 ("`大不了`")、四字格 ("`沒大沒小`")、四字成語 ("`一葉知秋`")、格言 ("`滿招損謙受益`")、歇後語、諺語 。。
+
+
+---
+# Formulaic Language (語式) | Review
+
+- *Formulae* : &lt;font color = "blue"&gt; 以常用語反覆為特徵，心理上具有預製 (prefabbed) 的語言現象。&lt;/font&gt;
+
+- 60 多種相關術語：`定式語` (formulaic sequence/utterance/speech)、`語塊` (chunk)、`詞串` (lexical bundles)、`多詞單位` (multiword expressions)、`搭配詞` (collocation)、`成語` (idioms)、`固定語` (fixed expressions) ...... 
+
+&gt; a sequence, continuous or discontinuous, of words or other meaningelements, which is, or appears to be, prefabricated: that is, stored and retrieved whole from memory at the time of use, rather than being subject to generation or analysis by the language grammar (wray, 2000)
+
+
+---
+# 語式的特徵 | Basic characterization of formulaic language
+
+- 語音連貫性
+- 語意組合性（`透明到晦澀`）
+- 整體提取性
+- 句法常常不合常規
+- 使用頻率穩定
+
+
+
+
+
+---
+
+layout: false
+
+# Construction grammar (C*G) | 構式文法 
+
+--
+&lt;br&gt;
+
+- 語式的觀察沒有要探究認知意義，構式文法的理論企圖較大。
+
+&gt; Construction grammar (often abbreviated CxG) is a sociobiological family of theories within the field of cognitive and evolutionary linguistics. These posit that human language consists of constructions, or learned pairings of linguistic forms with meanings. (wiki)
+
+
+--
+
+&gt; .font90[ `\(C\)` is a CONSTRUCTION iff def `\(C\)` is a form–meaning pair `\(&lt;F_{i}, S_{i}&gt;\)` such
+that some aspect of `\(F_{i}\)` or some aspect of `\(S_{i}\)` is not strictly predictable from
+`\(C\)`'s component parts or from other previously established constructions (Goldberg, &lt;font color ="blue"&gt;1995&lt;/font&gt;).]
+
+
+--
+&gt; .font90[ Any linguistic pattern is recognized as a construction as long as some aspect
+of its form or function is not strictly predictable from its component parts or
+from other constructions recognized to exist. In addition, patterns are stored
+as constructions even if they are fully predictable as long as they occur with
+sufficient frequency (Goldberg, &lt;font color ="blue"&gt;2006&lt;/font&gt;).]
+
+
+
+---
+
+layout: true
+
+# Raison d'être
+
+---
+
+--
+
+.right-column[
+
+.font100[
+The common idea is that a speaker's knowledge of his/her language consists of a very large inventory of constructions, where a construction is understood to be of any size and abstractness, from &lt;font color="blue"&gt; a single word to some grammatical aspect of a sentence &lt;/font&gt;, such as its Subject-Predicate structure.]
+
+
+]
+
+--
+
+.left-column[
+![](images/y_tho.jpg)
+]
+
+--
+
+.right-column[.font130[
+`CONTRUCTICON`
+]
+]
+
+---
+
+layout: true
+
+# Variations and Basic Tenets 
+---
+
+不同版本之共享前提
+- different versions (Goldberg; Langacker; Croft....) ; a family of theories.
+- Most constructional approaches agree on three basic tenets: 
+--
+
+&lt;!-- .img-center[ --&gt;
+&lt;!-- ![](images/ds_workflow.png) 
+] --&gt;
+
+&lt;!-- .footnote[[(Grolemund &amp; Wickham, *R for Data Science*, 2017)](https://r4ds.had.co.nz/)] --&gt;
+
+  ✅  constructions are symbolic units  &lt;br&gt;
+  ✅ there is a continuum between lexicon and grammar  &lt;br&gt;
+  ✅ constructions are organized in networks.
+
+
+---
+
+layout: true
+
+# Constructional Meaning | 意義是建構的
+
+---
+
+--
+
+哲學與認知前提
+
+- bottom-up, usage-based .font70[浮現語法觀]
+
+&gt; emphasizes that exemplars— structured representations— cluster
+within a hyper- dimensional conceptual space giving rise to emergent constructions,
+which are then extendable as needed for the purpose of communication.
+
+- monotonic, non-derivational (thus no transformation rule, etc). &lt;br&gt;
+.font70[單層級，不推導。句法現象不是由生成規則運算而生的副產品（如被動不是由主動推導出來）]
+
+--
+
+.img-right-small[
+![hyperdimensional conceptual space](images/hyperplane.png)
+]
+
+&lt;!--also intended to convey that as memory traces accrue, their status
+as unique encounters gives way to an emergent cluster (or “cloud”), which
+constitutes what we think of as a single coherent word meaning (or lemma).--&gt;
+
+
+---
+
+layout: true
+
+# (I) Form-Meaning Pairings 
+---
+
+「形意對」的符碼單位
+
+- The formal aspect of a construction is typically described as a syntactic template, but the form covers more than just syntax, as it also involves phonological aspects, such as prosody and intonation. The content covers semantic as well as pragmatic meaning.
+
+--
+
+- .font80[大部分的構式具有（不同程度的）「不可預測性」的特質。（如：【X 什麼 X】具有否定、斥責）。成分與構式之間的規約與語意激發關係值得探究。]
+
+---
+layout: true
+
+# (II) Syntax-lexicon continuum    
+---
+
+
+&lt;!-- 如果句法本身有意義，就是詞項。所以句法與詞彙界線模糊。 --&gt;
+
+「非模組性」打破語言學知識分界
+
+- collapse the classical distinctions between semantics, syntax and pragmatics (or, treated holistically.) &lt;br&gt;
+.font70[每個語法 chunk 都是形式、意義/用法的整體 (Gestalt)]
+- construction grammarians argue that all pairings of form and meaning are constructions including phrase structures, idioms, words and even morphemes.  
+.font70[涵蓋從語素到句子各級句法單位，甚至詞類的構式]
+
+
+--
+
+&gt; They laughed him out of the room. (town/court) 
+
+.font70[It means that they laughed at you until you were so embarrassed that you left the room and kept laughing as you left. &gt; the normally intransitive verb receives a transitive reading and the situation can be interpreted on the basis of the 'X cause Y to move' construction rather than the syntactic deviance alone.]
+
+
+
+
+
+
+
+
+---
+layout: true
+
+# (III) Cognitive Organization
+
+---
+
+- Grammar as a taxonomic inventory of constructions, which are based on the same principles as those of the conceptual categories known from cognitive linguistics, such as
+    - inheritance
+    - prototypicality
+    - extensions
+    - multiple parenting
+
+
+---
+layout: true
+
+# 訊息的儲存、組織與表徵
+---
+
+different models are proposed in relation to how information is stored in the taxonomies.
+
+- full-entry/usage-based/default inheritance/complete inheritance model ......
+- since the late nineties there has been a shift towards a general preference for the usage-based model. The shift towards the usage-based approach in CxG has inspired several the development of corpus-based methodologies of constructional analysis.
+
+
+&gt; The usage-based model is based on inductive learning, meaning that linguistic knowledge is acquired in a bottom-up manner through use. It allows for redundancy and generalizations, because the language user generalizes over recurring experiences of use.
+
+
+
+---
+layout: true
+
+# Reflections
+---
+
+Is C*G a (scientific) theory or a perspective?
+
+- cognitive commitment
+  - the structures of language emerge from interrelated patterns of experience, social interaction, and cognitive processes.
+  
+&lt;!-- 飛紐約 （不及物帶賓語？以飛行方式去紐約。去紐約這個位移事件被隱含在構式中）--&gt;
+ 
+
+
+--
+- computational commitment
+
+
+---
+layout: false
+
+class: inverse, center, middle
+
+# *Chinese Examples*
+
+
+---
+layout: true
+
+# Affixoid | 類詞綴
+---
+
+#### Computational modeling of Affixoid Behaviour in Chinese Morphology 
+
+
+.left-column[.font70[
+
+- The morphological status of most Chinese morphemes is indeterminate; rarely derivational and hardly ever inflectional (Hsieh and Huang, forthcoming) &lt;br&gt;
+- Modeling affixoid beheviour (Tseng, Hsieh, Chen and Court, 2020)
+]
+
+]
+
+--
+.right-column[
+
+.img-small[
+![](images/1.png)
+![](images/2.png)
+![](images/3.png)
+]
+
+
+.img-right[
+![](images/affixoid.png)
+
+]
+]
+
+
+
+
+
+---
+layout: true
+
+# QIEs and Idioms | 四字格與成語
+
+---
+
+[華語四字格詞彙網路的認知神經研究 2017-8](http://lope.linguistics.ntu.edu.tw/bmq/)
+
+- Prefabs 體現了構式的特點
+  - .font70[例：`X頭X尾`：虎頭蛇尾、沒頭沒尾、有頭沒尾、徹頭徹尾、從頭到尾、街頭巷尾]
+
+- 結構對詞彙給出了限制
+
+
+
+
+.pull-right[
+![](images/bmq2.png)
+]
+
+
+
+.footnote[[(Hsieh et al, 2017), *Entrenchment and Creativity in Chinese Quadrasyllabic Idiomatic Expressions*](https://docs.google.com/presentation/d/1bZ9rrVDtkJ_nLi7zwFpGR2xiWgFJOMQ8/edit#slide=id.p1)]
+
+
+
+
+---
+layout: true
+
+# QIEs and Neural Evidence
+---
+
+
+.img-right[
+![](images/bmq3.png)
+
+]
+
+--
+
+- .font70[We hypothesized that when primed with idioms (and other prefabs QIEs) whose construction are ‘entrenched’, language
+speakers should be faster in comprehension task, and when the QIEs are not recognizable as fixed units, semantically related
+targets within the constraints set by construction do play a determining role in the acceptance of QIEs variants.]
+
+
+
+
+
+
+
+&lt;!-- Neurolinguistic work on individual constructions is still in its infancy.  
+But in one experiment, participants passively read blocks of instances of the double object
+construction and the caused- motion construction, as in (3.14) and (3.15) respectively.--&gt;
+
+&lt;!--
+- Examples of the double- object construction &lt;br&gt;
+  - James e- mailed Matt a document.
+
+- Examples of the caused- motion construction
+  - James e- mailed a document to Matt.
+--&gt;
+
+&lt;!-- As in these examples, the same nouns and verbs were used across the two types --&gt;
+&lt;!-- of blocks and the corresponding sentences had very similar meanings. A newer --&gt;
+&lt;!-- type of analysis of fMRI data, multivoxel pattern analysis (MVPA), allows researchers --&gt;
+&lt;!-- to determine whether patterns of activation in particular areas are --&gt;
+&lt;!-- capable of distinguishing similar stimuli. Allen et al. (2012) were in fact able to --&gt;
+&lt;!-- distinguish the double- object and caused- motion constructions, even though --&gt;
+&lt;!-- propositional content, nouns and verbs, complexity, and frequency were controlled --&gt;
+&lt;!-- for. Critically involved in the discrimination was an anterior temporal --&gt;
+&lt;!-- region in the left hemisphere (left anterior Brodmann’s area 22) that is known --&gt;
+&lt;!-- to be evoked by semantic composition, suggesting that the two constructions --&gt;
+&lt;!-- differ subtly in how their meanings are composed. A related study comparing --&gt;
+&lt;!-- actives and passives similarly found discrimination was possible in nearby temporal --&gt;
+&lt;!-- areas of the cortex also known to be involved in semantic combination --&gt;
+&lt;!-- (Frankland and Greene, 2015). --&gt;
+
+
+
+
+
+
+
+---
+layout: true
+# Construction in opinionated texts
+---
+
+--
+Aspect-based Sentiment Analysis
+
+&gt; Opinionated text can be defined as the text acquired from blogs, social networking sites or any other online portal in which the users have expressed their disposition and point of view towards any particular product or service. 
+
+- .font70[[語言是情意表達的戰場,實例](https://lopentu.github.io/casa/threads-sample-every50.html)]
+
+
+.footnote[[中華電信輿情分析 2017-8; 2020-21](http://140.112.147.132:9090/)]
+
+
+
+---
+layout: true
+# Internet Meme and Multimodal C*G
+---
+
+
+- **Internet Memes** provide a growing volume of multimodal data. (cf. `Multimodal Meme Dataset`(Suryawanshi et al. 2020))
+
+- Typical image macro includes 3 element:
+  - a background **image**
+  - top **text** that often *formulaic* and easily recognizable
+  - bottom text that often delivers the *punch line* of the theme.
+
+
+.img-right[
+![](images/hell.jpg)
+
+]
+
+
+---
+layout: true
+# Internet Meme and Multimodal C*G
+---
+
+- Our preliminary computational modeling results (Lin and Hsieh, 2020) shows that 
+  - IMs are multimodal constructions in nature.
+  - Different modalities (`verbal-visual incongruity`) demonstrates differences in *saliency* (or *Figure/Ground* contrast). 
+
+ 
+.img-right[
+![](images/meme.png)]
+
+--
+
+- Multimodal Construction Grammar &lt;br&gt; 
+(Zima and Bergs 2017; Zenner and Geeraerts 2018)
+
+&lt;!--https://www.overleaf.com/project/5fb76bef1d4efca7e0769a07--&gt;
+
+---
+layout: false
+
+class: inverse, center, middle
+
+# *Corpus-based (association) measures*
+
+---
+layout: true
+# 搭配 collogation、搭構 collostruction 與構式 construction
+---
+
+兩個德國 Stefan (Evert and Gries) 
+
+- Collocations as a linguistic epiphenomenon: [collocation statistics 綜整](collocations.de)
+
+- [collostructional analysis 介紹](http://www.stgries.info/teaching/groningen/index.html) 
+
+&lt;!-- ROCLING 程式實作與例子 ptt --&gt;
+
+
+
+---
+layout: true
+# Collostructional analysis (Gries, 2020)
+
+---
+
+--
+.left-column[
+![](images/collo.png)
+
+]
+
+--
+.right-column[
+
+在構式語法 (construction grammar) 架構下，Stefanowitsch and Gries (2003) 發展一套分析法稱 **搭構分析** (collostructional analysis)
+
+-  &lt;font color=#0000FF&gt;Collexeme analysis&lt;/font&gt; measures the mutual attraction of lexemes and constructions. 
+
+-  &lt;font color=#0000FF&gt;Distinctive collexeme analysis &lt;/font&gt; contrasts alternating constructions in their respective collocational preferences (Gries and Stefanowitsch 2004b). 
+
+- To measure the association between the two slots of the same construction, a third method known as  &lt;font color=#0000FF&gt;covarying-collexeme analysis&lt;/font&gt; is used (Gries and Stefanowitsch 2004a; Stefanowitsch and Gries 2005).
+
+]
+
+
+
+
+
+---
+layout: true
+# Collostruction analysis in practice
+---
+
+.img-center[
+![](images/collo2.png)
+]
+
+
+
+
+
+
+
+
+
+
+---
+layout: true
+# 語料庫程式實作工作坊 2020
+
+---
+[公開連結](https://github.com/lopentu/Hands-on_Corpus_Linguistics/tree/main/hocor2020)
+
+
+.img-center[
+![](images/collo3.png)
+] .font50[(slide credit: 廖永賦)]
+
+
+
+
+
+
+
+
+
+
+---
+layout: true
+# PTT 構式分析舉例
+---
+
+- 「實在是」、「不能不說是」、「最好是」、......
+「可以再 XX (一點)」「還在那邊 XX」 、「XX 不意外」、「是在 XX」
+
+- 假設我們想研究`「可以再 XX (一點)」`的(負面)語意韻/情感含義，大家會怎麼做？
+
+- [R 實作參考](http://www.stgries.info/teaching/groningen/coll.analysis.r); [Python 實作參考](https://github.com/lopentu/Hands-on_Corpus_Linguistics/tree/main/hocor2020) 
+
+
+
+
+
+
+
+---
+layout: true
+
+# Interim summary
+---
+
+&lt;br&gt;
+- 構式語法與當代認知科學發現的關聯應該是正相關
+
+- 語料庫語言學做出了共現現象的計量觀察與顯著檢定嘗試（至少在經驗基礎上提供了 Exploratory Data Analysis 的計算環境）
+
+但，如果構式不僅是作為一種 add-on 的語言(處理)資源，而是提供理論的基礎時，計算構式 (CoCoGram) 應該如何發生？
+
+
+---
+layout: true
+
+# 計算構式 (CoCoGram) 先導問題
+---
+
+
+- `如何表徵符碼與意義?` "The form and content are symbolically linked" (form-meaning pairs) but how can both to be co-represented?
+
+- `有無自然邊界？如何調節更新流動與變異？` are texts possible to be naturally chunked? reconcile varieties? roles in the understanding of the text/language? 
+
+- `隱性知識本體如何紬繹與回饋？` how a 'provisional unit boundary' can be detected, the 'linear unit of meaning' (linear unit grammar) be acquired and latent hierarchy can be discerned in the linear string of word forms? 
+
+- `如何解決同一性`
+
+&lt;!-- - 等語線的隱喻？ --&gt;
+
+
+
+
+
+
+
+---
+layout: true
+
+# Computational (Lexical) Semantics
+---
+
+.font70[
+- 語言理論無法忽略語意
+- 語言理論要能解釋 (Pustejovsky, 1996)：
+  - polymorphism
+  - semanticality
+  - creative use
+  - co-composition
+]
+
+
+--
+
+.pull-right[
+![](images/sense.png)
+.font60[(Goldberg, 2019)]
+]
+
+
+
+
+---
+layout: false
+
+class: inverse, center, middle
+
+# *Computational construction grammar (and NLU)*
+---
+
+COCOGram aims to operationalize insights and analyses from construction grammar as computational processing models.
+
+It does not only allow for automatic validation of the preciseness and consistency of construction grammar models, and to run these models on text corpora, but also to make use of construction grammar insights to enhance the performance of language technology applications.
+
+- 機器學習與驗證是關鍵
+
+---
+layout: true
+
+# 想法
+---
+
+- **Fluid Construction Grammar (FCG)** &lt;br&gt;
+(Remi van Trijp, 2020; [https://www.youtube.com/watch?v=YTKHllV4MCU](https://www.youtube.com/watch?v=YTKHllV4MCU))
+  - traditional linguistic processing : vertically eat layer-by-layer &gt;&gt; pipelined NLP
+  - constructionist &gt; horizontally eat all
+
+- **Construction Grammar Induction**
+  - Computational learning of construction grammar (Dunn, 2017)
+
+
+
+
+---
+layout: false
+
+class: inverse, center, middle
+
+# *Conclusion and Future/on-going works*
+
+
+
+
+---
+layout: true
+# Conclusion
+---
+
+
+- .font70[語料庫量度成就了EDA，在漢語與台灣南島語言上可以多做比較]&lt;br&gt;
+- .font70[認知計算構式方才開始，符碼序列無邊界線索的語言文字提供最難與最關鍵的養分 
+  - (Symbolic) form and (Sub-symbolic) meaning representation
+  - CG induction algorithm] 
+
+
+
+
+---
+layout: true
+
+# On-going works
+---
+
+
+
+- 構式與變異：理論跟著語料（語言使用）走 &lt;br&gt;
+&gt; .font70[他哭奶奶/小孩就活個媽媽/飛上海/跑生意/跑百米/走八卦掌/喊一聲嗓子/闖紅燈 (郭繼懋 1999)]
+
+- Sense-aware Construction/Collostructional Analysis &lt;br&gt;
+[Chinese Sense Tagger]()
+
+
+
+
+
+---
+layout: true
+
+# Reference
+---
+
+
+- Bergen, Benjamin &amp; Nancy Chang (2005). "Embodied Construction Grammar in Simulation-Based Language Understanding". In J.-O. Östman &amp; M. Fried, ed. Construction Grammar(s): Cognitive and Cross-Language Dimensions. Amsterdam: John Benjamins. .
+- Croft, William A (2001). Radical Construction Grammar: Syntactic Theory in Typological Perspective. Oxford: Oxford University Press.
+- Croft, William A. &amp; D. Alan Cruse (200). Cognitive Linguistics. Cambridge: Cambridge University Press.
+- Fillmore, Charles, Paul Kay and Catherine O'Connor (1988). "Regularity and idiomaticity in grammatical constructions: the case of let alone". Language, 64. 501-38.
+- Goldberg, Adele (1995). Constructions: A Construction Grammar Approach to Argument Structure. Chicago: University of Chicago Press.
+- Goldberg, Adele (2006). Constructions at Work: the nature of generalization in language. Oxford: Oxford University Press.
+- Goldberg, A. (2019). *Explain me this: Creativity, Competition, and the Partial Productivity of Constructions*. Princeton University Press.
+
+---
+layout: true
+
+# Reference II
+---
+
+- Hsieh, S.K. et al. (2017). *cognitive neurological base of idiomatic network in chinese*. ICCS.
+- Lakoff, George (1987). Women, Fire, and Dangerous Things: What Categories Reveal about the Mind. Chicago: CSLI.
+- Langacker, Ronald (1987, 1991). Foundations of Cognitive Grammar. Vols I-II. Stanford: Stanford University Press.
+- Michaelis, Laura A. &amp; Josef Ruppenhofer (2001). Beyond Alternations: A Construction-based Account of the Applicative Construction in German. Stanford: CSLI.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "foundation",
+"highlightLines": true,
+"countIncrementalSlides": true,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

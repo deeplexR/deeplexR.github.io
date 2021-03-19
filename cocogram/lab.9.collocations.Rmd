@@ -1,0 +1,151 @@
+---
+title: "Analyzing Co-occurrences and Collocations in R"
+author: "me"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 單純詞頻出發
+
+
+## 近義詞使用比較（搭配）
+
+
+```{r}
+rm(list=ls(all=TRUE))
+#data <- read.delim("C:/CLSR/chap5/df_each_every_bnc_baby.txt", header=TRUE) # Windows 
+data <- read.delim("data/df_each_every_bnc_baby.txt", header=TRUE) # Mac
+```
+
+
+inspect the data
+```{r}
+str(data)
+each.every.np <- data[, c(6,7)] # determiner + NP
+str(each.every.np)
+```
+
+
+
+```{r}
+library(plyr)
+freqlist <- count(each.every.np, c("NP", "determiner"))
+str(freqlist)
+```
+
+
+```{r}
+freqlist <- arrange(freqlist, determiner, desc(freq))
+
+head(freqlist[which(freqlist$determiner=="each"),])
+
+head(freqlist)
+
+head(freqlist[which(freqlist$determiner=="every"),])
+```
+
+## Colligation
+Colligation is like collocation except that it has a grammatical component.
+
+
+
+```{r}
+#install.packages("languageR")
+library(languageR)
+data(dative)
+
+DO <- dative[which(dative$RealizationOfRecipient=="NP"),]; str(DO)
+
+verb.theme <- DO[,c(3,12)]; str(verb.theme)
+```
+
+```{r}
+library(plyr)
+freq <- count(DO, c("Verb","PronomOfTheme"))
+sorted.freq <- arrange(freq, PronomOfTheme, desc(freq)); head(sorted.freq, 15)
+
+sorted.freq[which(sorted.freq$PronomOfTheme=="pronominal"),]
+```
+
+## Collostruction
+
+Corpus query and grammatical constructions
+
+```{r}
+library(tidyverse)
+library(cleanNLP)
+library(corpuslingr) #devtools::install_github("jaytimm/corpuslingr")
+library(quicknews) #devtools::install_github("jaytimm/quicknews")
+library(DT)
+```
+
+
+- Corpus preparation & annotation
+
+```{r}
+
+metas <- quicknews::qnews_get_meta (term = NULL, since = NULL)
+
+metas_nm <- quicknews::qnews_get_meta (term = "New Mexico AND COVID-19", 
+                                       since = "7d")
+articles <- quicknews::qnews_scrape_web (links = metas$link[1:10], 
+                                         strip_crs = F)
+```
+
+
+```{r}
+articles %>%
+  mutate(words_n = tokenizers::count_words(text)) %>%
+  left_join(metas, by = c('doc_id' = 'link')) %>%
+  select(date, source, title, words_n) %>%
+  knitr::kable()
+```
+
+
+
+
+
+
+```{r}
+qorp <- quanteda::corpus(articles)
+#quanteda::docnames(qorp) <- korpus$status_id
+
+quicknews::qnews_search_contexts(qorp = qorp, 
+                                        search = "COVID19|COVID-19|coronavirus", 
+                                        window = 15,
+                                        highlight_color = '|') %>%
+  left_join(metas, by = c('docname' = 'link')) %>%
+  select(date, source, title, context) %>%
+  sample_n(7) %>%
+  arrange(title) %>%
+  knitr::kable(caption = 'Search-in-context: COVID-19 & coronavirus')
+```
+
+
+
+
+```{r}
+qorp_corpus <- articles %>%
+  corpuslingr::clr_set_corpus()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

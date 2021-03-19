@@ -1,0 +1,194 @@
+---
+title: "collostruction analysis"
+author: "me"
+date: "1/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(quanteda)
+library(stringr)
+library(jiebaR)
+library(readtext)
+```
+
+
+```{r}
+#install.packages(pkgs = file.choose(), repos = NULL, type = "source")
+library(Rling)
+library(ggplot2)
+library(corrgram)
+```
+
+
+
+```{r}
+train <- read_csv("qilai.csv")
+tbl_df(train)
+
+```
+
+```{r}
+glimpse(train)
+
+```
+
+```{r}
+table(train$X1)
+```
+
+
+
+```{r}
+ggplot(train, aes(X1)) + 
+        geom_bar()
+```
+
+```{r}
+train %>%
+  count(X1, sort = TRUE)  
+```
+```{r}
+train %>%
+  count(X1, sort = TRUE) %>%
+  mutate(X1 = reorder(X1, n)) %>%
+  ggplot(aes(X1, n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip()
+```
+
+
+
+```{r}
+# word freq
+qilai_corpus %>%
+  select(text) %>%
+  unnest_tokens(word,
+                text_tag,
+                token = function(x) str_split(x, "\\s+|\u3000")) %>%
+  filter(nzchar(word)) %>%
+  count(word, sort = T) -> qilai_word
+
+qilai_word %>%
+  head(100)
+```
+
+
+
+
+
+```{r}
+data(ditr)
+head(ditr)
+```
+
+```{r}
+a <- ditr$Freq_VC
+b <- ditr$Freq_V - a
+c <- 667 -a
+d <- 104162 - (a+b+c)
+```
+
+
+```{r}
+head(c)
+```
+
+
+```{r}
+aExp <- (a+b) * (a+c) / (a+b+c+d)
+head(aExp)
+```
+
+
+```{r}
+Attraction <- 100*a/(a+c)
+Reliance <- 100*a/(a+b)
+```
+
+
+
+```{r}
+names(Attraction) <- rownames(ditr)
+head(Attraction)
+```
+
+
+
+
+```{r}
+sort(Attraction, decreasing = TRUE)[1:5]
+```
+
+
+```{r}
+names(Reliance) <- rownames(ditr)
+sort(Reliance, decreasing = TRUE)[1:5]
+```
+
+
+```{r}
+ggplot(data.frame(Attraction, Reliance), aes(x=Attraction, y = Reliance)) +
+  geom_text(label = names(Attraction), size = 3)
+```
+
+
+```{r}
+dP.cueVerb <- a/(a + b) - c/(c + d)
+dP.cueCx <- a/(a + c) - b/(b + d)
+pvF <- pv.Fisher.collostr(a, b, c, d)
+round(head(pvF), 3)
+```
+
+
+
+```{r}
+logpvF <- ifelse(a < aExp, log10(pvF), -log10(pvF))
+round(head(logpvF), 3)
+```
+
+
+```{r}
+-log10(0.05)
+LL <- LL.collostr(a, b, c, d)
+LL1 <- ifelse(a < aExp, -LL, LL)
+```
+
+```{r}
+random <- sample(0:100, length(a), replace = TRUE)
+head(random)
+```
+
+```{r}
+assoc <- cbind(Attraction, Reliance, dP.cueCx, dP.cueVerb, logpvF, LL1, random)
+assoc.cor <- cor(assoc)
+round(assoc.cor, 3)
+corrgram(assoc, order = TRUE, lower.panel = panel.shade, upper.panel = panel.pie)
+
+```
+
+```{r}
+corrgram(assoc, order = TRUE, lower.panel = panel.ellipse, upper.panel = panel.pts)
+assoc.cor1 <- cor(assoc, method = "kendall")
+round(assoc.cor1, 3)
+```
+
+
+
+```{r}
+ggplot(data.frame(Attraction, Reliance), aes(x = Attraction, y = Reliance)) + geom_text(label = names(Attraction), size = 3)
+
+```
+
+
+
+
+
+

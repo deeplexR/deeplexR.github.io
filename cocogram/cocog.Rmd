@@ -651,6 +651,43 @@ layout: true
 
 <!--https://www.overleaf.com/project/5fb76bef1d4efca7e0769a07-->
 
+
+
+---
+layout:true
+# Internet Video Meme and Multimodal C*G 
+---
+
+Construction Grammar explained in 11 memes
+.font70[連 CG 都可以用迷因解釋的時代]
+
+```{r, echo=FALSE}
+library("vembedr")
+embed_url("https://youtu.be/ZolU6xIKeLA") %>%
+  use_start_time("8m24") %>%
+  use_align("center")
+```
+
+
+
+---
+layout:true
+# 當代社會文化與構式理論 
+---
+
+> Construction grammar (often abbreviated CxG) is a sociobiological family of theories within the field of cognitive and evolutionary linguistics. These posit that human language consists of constructions, or learned pairings of linguistic forms with meanings. Constructions correspond to replicators or memes in memetics and other cultural replicator theories. It is argued that construction grammar is not an original model of cultural evolution, but for essential part the same as memetics. 
+
+
+- Internet Meme and Participatory Culture (`#TikTokization`)
+
+
+```{r, echo=FALSE}
+library("vembedr")
+embed_url("https://youtu.be/QHROwZHvLR4") %>%
+  use_align("center")
+```
+
+
 ---
 layout: false
 
@@ -667,9 +704,32 @@ layout: true
 
 - Collocations as a linguistic epiphenomenon: [collocation statistics 綜整](collocations.de)
 
-- [collostructional analysis 介紹](http://www.stgries.info/teaching/groningen/index.html) 
+- [collostructional analysis 介紹](http://www.stgries.info/teaching/groningen/index.html): a blend of  
+  - Collocation: preferential lexical company kept by a word
+  - Construction (in a Construction Grammar sense): form-meaning pairing that constitutes a basic unit in language
+
 
 <!-- ROCLING 程式實作與例子 ptt -->
+
+
+
+---
+# Collocates vs Collexemes
+
+
+![Stefanowitsch & Gries (2003)](images/collexeme.png){width=20%}
+
+
+---
+# Issues
+
+![Stefanowitsch & Gries (2003)](images/collexeme2.png){width=20%}
+
+
+
+
+
+
 
 
 
@@ -706,6 +766,9 @@ layout: true
 layout: true
 # Collostruction analysis in practice
 ---
+
+- Involved corpus-based statistical calculation to measure the **association strength** (`attraction/repulsion`) between the construction and its 'collexemes'.
+
 
 .img-center[
 ![](images/collo2.png)
@@ -839,7 +902,7 @@ It does not only allow for automatic validation of the preciseness and consisten
 ---
 layout: true
 
-# 想法
+# 目前學界想法
 ---
 
 - **Fluid Construction Grammar (FCG)** <br>
@@ -854,14 +917,51 @@ layout: true
 
 
 ---
+layout: true
+# Proposal
+---
+
+> Like words, (grammatical) constructions invite learners/speakers to form categories
+
+語言資源的優先意義：人 EDA and 機 gold standard
+
+- 同時做 `CWN` (wordnet) 與 `CCN` (construtionNet)
+  - `word` 是較穩定的 `construction`
+  - CWN 底層預設核心是 **synset**, CCN 是 **argument structure construction (ASC, Goldberg 1992)**.
+
+- 一個 synset 是由至少一個 form (lemma)-meaning (sense) pair 組成
+
+- `Lexicon` vs `ConstructIcon`: the latter "including words, partially filled words (aka morphemes), and representations that are larger than single words, all represented in a complex dynamic network, much as we have long known to be true of the lexicon."  
+
+
+
+- 應用先選擇情緒分析
+
+
+
+
+---
+layout: true
+# Steps
+---
+
+- [top-down] compile an (incomplete) list of ASCs in Mandarin (modelled on English, cf. Goldberg 2019:p35);
+similar to `constructionalized ontology` (as opposed to `lexicalied ontology`).
+
+- [bottom-up] manual selection with corpus check (Entropy or other measures?)
+
+
+
+? Need to implement `Semantic Role Labeling`
+
+
+
+---
 layout: false
 
 class: inverse, center, middle
 
 # *Conclusion and Future/on-going works*
-
-
-
 
 ---
 layout: true

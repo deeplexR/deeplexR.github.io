@@ -4,10 +4,11 @@
     <title>構式之無所不在：</title>
     <meta charset="utf-8" />
     <meta name="author" content="謝舒凱 (Graduate Institute of Linguistics, NTU)" />
-    <meta name="date" content="2021-03-12" />
+    <meta name="date" content="2021-03-19" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link href="libs/vembedr/css/vembedr.css" rel="stylesheet" />
     <link rel="stylesheet" href="presentation.css" type="text/css" />
   </head>
   <body>
@@ -17,7 +18,7 @@ class: center, middle, inverse, title-slide
 # <code>構式</code>之無所不在：
 ## 認知與計算觀點 (Version: 0.2)
 ### 謝舒凱 (Graduate Institute of Linguistics, NTU)
-### 2021-03-12 <br> <br> <br>
+### 2021-03-19 <br> <br> <br>
 
 ---
 
@@ -622,6 +623,42 @@ layout: true
 
 &lt;!--https://www.overleaf.com/project/5fb76bef1d4efca7e0769a07--&gt;
 
+
+
+---
+layout:true
+# Internet Video Meme and Multimodal C*G 
+---
+
+Construction Grammar explained in 11 memes
+.font70[連 CG 都可以用迷因解釋的時代]
+
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/ZolU6xIKeLA?start=504" width="533" height="300" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+
+
+
+---
+layout:true
+# 當代社會文化與構式理論 
+---
+
+&gt; Construction grammar (often abbreviated CxG) is a sociobiological family of theories within the field of cognitive and evolutionary linguistics. These posit that human language consists of constructions, or learned pairings of linguistic forms with meanings. Constructions correspond to replicators or memes in memetics and other cultural replicator theories. It is argued that construction grammar is not an original model of cultural evolution, but for essential part the same as memetics. 
+
+
+- Internet Meme and Participatory Culture (`#TikTokization`)
+
+
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/QHROwZHvLR4" width="533" height="300" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+
+
 ---
 layout: false
 
@@ -638,9 +675,32 @@ layout: true
 
 - Collocations as a linguistic epiphenomenon: [collocation statistics 綜整](collocations.de)
 
-- [collostructional analysis 介紹](http://www.stgries.info/teaching/groningen/index.html) 
+- [collostructional analysis 介紹](http://www.stgries.info/teaching/groningen/index.html): a blend of  
+  - Collocation: preferential lexical company kept by a word
+  - Construction (in a Construction Grammar sense): form-meaning pairing that constitutes a basic unit in language
+
 
 &lt;!-- ROCLING 程式實作與例子 ptt --&gt;
+
+
+
+---
+# Collocates vs Collexemes
+
+
+![Stefanowitsch &amp; Gries (2003)](images/collexeme.png){width=20%}
+
+
+---
+# Issues
+
+![Stefanowitsch &amp; Gries (2003)](images/collexeme2.png){width=20%}
+
+
+
+
+
+
 
 
 
@@ -677,6 +737,9 @@ layout: true
 layout: true
 # Collostruction analysis in practice
 ---
+
+- Involved corpus-based statistical calculation to measure the **association strength** (`attraction/repulsion`) between the construction and its 'collexemes'.
+
 
 .img-center[
 ![](images/collo2.png)
@@ -810,7 +873,7 @@ It does not only allow for automatic validation of the preciseness and consisten
 ---
 layout: true
 
-# 想法
+# 目前學界想法
 ---
 
 - **Fluid Construction Grammar (FCG)** &lt;br&gt;
@@ -825,14 +888,51 @@ layout: true
 
 
 ---
+layout: true
+# Proposal
+---
+
+&gt; Like words, (grammatical) constructions invite learners/speakers to form categories
+
+語言資源的優先意義：人 EDA and 機 gold standard
+
+- 同時做 `CWN` (wordnet) 與 `CCN` (construtionNet)
+  - `word` 是較穩定的 `construction`
+  - CWN 底層預設核心是 **synset**, CCN 是 **argument structure construction (ASC, Goldberg 1992)**.
+
+- 一個 synset 是由至少一個 form (lemma)-meaning (sense) pair 組成
+
+- `Lexicon` vs `ConstructIcon`: the latter "including words, partially filled words (aka morphemes), and representations that are larger than single words, all represented in a complex dynamic network, much as we have long known to be true of the lexicon."  
+
+
+
+- 應用先選擇情緒分析
+
+
+
+
+---
+layout: true
+# Steps
+---
+
+- [top-down] compile an (incomplete) list of ASCs in Mandarin (modelled on English, cf. Goldberg 2019:p35);
+similar to `constructionalized ontology` (as opposed to `lexicalied ontology`).
+
+- [bottom-up] manual selection with corpus check (Entropy or other measures?)
+
+
+
+? Need to implement `Semantic Role Labeling`
+
+
+
+---
 layout: false
 
 class: inverse, center, middle
 
 # *Conclusion and Future/on-going works*
-
-
-
 
 ---
 layout: true

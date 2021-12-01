@@ -379,22 +379,24 @@ layout: true
 
 layout: true
 
-# Constructional Meaning | 意義是建構的
+# Constructional Meaning | 意義是建構的 1/
 
 ---
 
---
 
 哲學與認知前提
 
 - bottom-up, usage-based .font70[浮現語法觀], self-adaptive /complex system
 
 > emphasizes that exemplars— structured representations— cluster
-within a hyper- dimensional conceptual space giving rise to emergent constructions,
+within a hyper-dimensional conceptual space giving rise to emergent constructions,
 which are then extendable as needed for the purpose of communication.
 
 - monotonic, non-derivational (thus no transformation rule, etc). <br>
 .font70[單層級，不推導。句法現象不是由生成規則運算而生的副產品（如被動不是由主動推導出來）]
+
+> Grammar does not involve any transformational or derivational component. Semantics is associated directly with surface form
+
 
 --
 
@@ -407,20 +409,39 @@ as unique encounters gives way to an emergent cluster (or “cloud”), which
 constitutes what we think of as a single coherent word meaning (or lemma).-->
 
 
+
+
 ---
 
 layout: true
 
-# (I) Form-Meaning Pairings 
+# Constructional Meaning | 意義是建構的 2/
+
 ---
 
-「形意對」的符碼單位
+- Semantics is based on speakers' `construals` of situations, not on objective truth conditions.
+
+- Semantics, information structure, pragmatics are interrelated, and all played a role in linguistic functions, which are part of our overall conceptual system and not a separate modular component.
+
+
+
+
+
+---
+
+layout: true
+
+# (I) Form-Meaning Pairings | 「形意對」的符碼單位
+---
+
+> Constructions are defined to be conventional, learned form-function pairings at varying levels of complexity and abstraction.
+
 
 - The formal aspect of a construction is typically described as a syntactic template, but the form covers more than just syntax, as it also involves phonological aspects, such as prosody and intonation. The content covers semantic as well as pragmatic meaning.
 
 --
 
-- .font80[大部分的構式具有（不同程度的）「不可預測性」的特質。（如：【X 什麼 X】具有否定、斥責）。成分與構式之間的規約與語意激發關係值得探究。]
+- .font90[大部分的構式具有（不同程度的）「不可預測性」的特質。（如：【X 什麼 X】具有否定、斥責）。成分與構式之間的規約與語意激發關係值得探究。]
 
 
 - .font90[情 (sentiment) 意(sense) 計算是協同發生的嗎？] （【 X 到一個 Y】）
@@ -485,7 +506,6 @@ layout: true
 layout: true
 
 # (III) Cognitive Organization 1/
-
 ---
 
 
@@ -507,7 +527,6 @@ different models are proposed in relation to how information is stored in the ta
 layout: true
 
 # (III) Cognitive Organization 2/
-
 ---
 
 ### Usage-based theory and Exemplar Representation of Construction
@@ -520,18 +539,27 @@ layout: true
 
 ---
 layout: true
+# (III) Cognitive Organization 3/
 
-# # (III) Cognitive Organization 3/ 
 ---
 
 
-- C\*G claims that **constructions form a network**
+- C\*G claims that **constructions form a (default inheritance) network**
 
 - Grammar as a taxonomic inventory of constructions, which are based on the same principles as those of the conceptual categories known from cognitive linguistics, such as
     - inheritance
     - prototypicality
     - extensions
     - multiple parenting
+
+
+---
+layout: true
+
+# 認知意義
+---
+
+- (Kaschak and Glenberg 2000) suggest that the constructional pattern specifies a general scene and that the 'affordances' of particular objects are used to specify the scene in detail (cf. Pustejovsky's 1995: qualia structure).
 
 
 
@@ -1078,8 +1106,15 @@ aggregating token frequencies can be misleading since tokens may exhibit very un
 ---
 layout: true
 
-# [2] 構式如何表徵 | meaning representation
+# [2] 構式如何表徵 | Representation of Constructions
 ---
+
+- `Feature-value matrices`
+
+- vector
+
+
+
 
 
 

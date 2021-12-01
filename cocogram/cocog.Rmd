@@ -429,11 +429,10 @@ layout: true
 ---
 layout: true
 
-# (II) Syntax-lexicon continuum    
+# (II) Syntax-lexicon continuum 1/2
 ---
 
 
-<!-- 如果句法本身有意義，就是詞項。所以句法與詞彙界線模糊。 -->
 
 「非模組性」打破語言學知識分界
 
@@ -452,6 +451,32 @@ layout: true
 
 
 
+---
+layout: true
+
+# (II) Syntax-lexicon continuum 2/2
+---
+
+如果句法本身有意義，就是詞項。所以句法與詞彙界線模糊。
+.font70[All constructions are part of a syntax-lexicon continuum. (Hoffmann and Trousdale, 2013)]
+
+
+(1) word construction: `apple`  
+
+(2) idiom construction: `X take Y for granted` - 'X doesn't value Y'
+
+(3) comparative construction: `John is taller than you` - 'X is more Adj than Y'
+
+(4) resultative construction: `She rocks the baby to sleep` - 'X causes Y to become Z by V-ing'.
+
+***
+--
+
+(1) 是典型的 form-meaning pairing; (3)-(4) 比較 schematic，因為有 slots
+
+
+
+
 
 
 
@@ -459,9 +484,48 @@ layout: true
 ---
 layout: true
 
-# (III) Cognitive Organization
+# (III) Cognitive Organization 1/
 
 ---
+
+
+.font70[訊息的習得、儲存、組織與表徵]
+
+different models are proposed in relation to how information is stored in the taxonomies.
+
+- full-entry/usage-based/default inheritance/complete inheritance model ......
+  - since the late nineties there has been a shift towards a general preference for the usage-based model. The shift towards the usage-based approach in CxG has inspired several the development of corpus-based methodologies of constructional analysis.
+
+
+> The usage-based model is based on inductive learning, meaning that linguistic knowledge is acquired in a bottom-up manner through use. It allows for redundancy and generalizations, because the language user generalizes over recurring experiences of use.
+
+
+
+
+
+---
+layout: true
+
+# (III) Cognitive Organization 2/
+
+---
+
+### Usage-based theory and Exemplar Representation of Construction
+
+> The mental grammar of speakers is shaped by repeated exposure to specific utterances and in which domain-general cognitive processes such as categorization and cross-modal association play a role in the entrenchment of construction.
+
+- Under this view, there would be no distinction between grammar and metagrammar, but all linguistic knowledge is instead viewed as **emergent** and constantly changing.
+
+  .font70[語法語意語用都存在一起了]
+
+---
+layout: true
+
+# # (III) Cognitive Organization 3/ 
+---
+
+
+- C\*G claims that **constructions form a network**
 
 - Grammar as a taxonomic inventory of constructions, which are based on the same principles as those of the conceptual categories known from cognitive linguistics, such as
     - inheritance
@@ -470,19 +534,6 @@ layout: true
     - multiple parenting
 
 
----
-layout: true
-
-# 訊息的儲存、組織與表徵
----
-
-different models are proposed in relation to how information is stored in the taxonomies.
-
-- full-entry/usage-based/default inheritance/complete inheritance model ......
-- since the late nineties there has been a shift towards a general preference for the usage-based model. The shift towards the usage-based approach in CxG has inspired several the development of corpus-based methodologies of constructional analysis.
-
-
-> The usage-based model is based on inductive learning, meaning that linguistic knowledge is acquired in a bottom-up manner through use. It allows for redundancy and generalizations, because the language user generalizes over recurring experiences of use.
 
 
 
@@ -1312,4 +1363,4 @@ layout: true
 
 - Herbst, Thomas. (2018). *Is language a collostruction? A proposal for looking at collocations, valency, argument structure and other constructions*.
 
-
+- Hoffmann and Trousdale (eds). 2013. *The Oxford Handbook of Construction Grammar*.

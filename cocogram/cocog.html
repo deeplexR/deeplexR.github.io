@@ -4,7 +4,8 @@
     <title>構式之無所不在：</title>
     <meta charset="utf-8" />
     <meta name="author" content="謝舒凱 (Graduate Institute of Linguistics, NTU)" />
-    <meta name="date" content="2021-04-30" />
+    <meta name="date" content="2021-12-01" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
@@ -18,7 +19,7 @@ class: center, middle, inverse, title-slide
 # <code>構式</code>之無所不在：
 ## 認知與計算觀點 (Version: 0.2)
 ### 謝舒凱 (Graduate Institute of Linguistics, NTU)
-### 2021-04-30 <br> <br> <br>
+### 2021-12-01 <br> <br> <br>
 
 ---
 
@@ -88,6 +89,94 @@ class: inverse, center, middle
 
 
 ---
+# NLP (modularized) pipeline
+
+管線的發展讓我們可以把語言切整乾淨，方便從不同角度抽取觀察。
+
+
+![](images/corenlp.png)
+
+
+---
+# Chinese coreNLP
+
+中文（與一些語言）多了一組斷詞任務，很強勢地決定了任何後續的任務。
+
+![](images/pipe.png)
+
+
+---
+# 但背後的假說，我們太習以為常 (為真)
+
+&gt; To the man with only a hammer, every problem looks like a nail  (Charlie Munger)
+
+&lt;br&gt;
+
+&lt;p align="center"&gt;
+&lt;img src="images/fiction.png" alt="drawing" width="700"/&gt;
+&lt;/p&gt;
+
+
+
+---
+# 回去看看 NLP (modularized) pipeline 的預設
+
+
+### 每個模組都要提供最佳解，贏者全拿 (competition) &lt;br&gt;
+Resolution of any competition (always looking for a **best-fit** solution
+
+  - 注意 competition 的源頭是來自連結論傳統 &lt;br&gt;
+The notion of compitition is sometimes associted with highly *non-modular* processing theories also described as **connectionist**, which hypothesizes an unrestrcted flow of information across an uncompartmentalized mind.
+        
+
+### 語言（語法）模組是自給自足的自主 (autonomous) 系統
+
+
+
+
+
+---
+# Chomsky hierarchy
+
+&lt;p align="center"&gt;
+&lt;img src="images/chomsky.png" alt="drawing" width="500"/&gt;
+&lt;/p&gt;
+
+
+
+
+
+
+---
+# 喬叟誤我輩六十年 (Huang, 2021)
+
+
+.pull-left[
+![](images/huang1.png)
+] 
+
+--
+.pull-right[
+![](images/huang2.png)
+]
+
+
+
+
+---
+# 語言與認知處理
+
+
+
+&lt;p align="center"&gt;
+&lt;img src="images/sem.proc.png" alt="drawing" width="700"/&gt;
+&lt;/p&gt;
+
+
+
+
+
+---
 
 # Language in use | 生活中的 (新) 語言使用
 
@@ -123,10 +212,18 @@ class: inverse, center, middle
 
 &lt;!-- Mike：`也是很好意思`--&gt;
 
+---
+
+# 簡言之
+
+&lt;br&gt;
+&lt;br&gt;
+## Grammar 是在人際使用中，系統裡突現的 (emerged)，(可能)不是先驗內在的 (innate)。
+
 
 
 ---
-# 語言表達單位的「連續」
+# 詞典學注意到語言表達單位的「連續」特質
 
 
 自由語到熟語
@@ -163,8 +260,11 @@ layout: false
 
 # Construction grammar (C*G) | 構式文法 
 
---
-&lt;br&gt;
+![](images/lang.cog.png)
+
+
+
+---
 
 - 語式的觀察沒有要探究認知意義，構式文法的理論企圖較大。
 
@@ -195,12 +295,15 @@ layout: true
 
 ---
 
---
-
 .right-column[
 
-.font100[
-The common idea is that a speaker's knowledge of his/her language consists of a very large inventory of constructions, where a construction is understood to be of any size and abstractness, from &lt;font color="blue"&gt; a single word to some grammatical aspect of a sentence &lt;/font&gt;, such as its Subject-Predicate structure.]
+.font90[
+a speaker's knowledge of language consists of a very large inventory of constructions, where a construction is understood to be `\(\underline{of \ any \ size \ and \ abstractness}\)`, ranging from morphemes to argument structure, and include obvious examples like &lt;font color="blue"&gt;
+**collocations** (`hermetically sealed'), **(idiomatic) expressions with fixed constituents** ('kick the bucket'), **expressions with (semi-) optional constituents** ('hungry as a X'), and **sequences of grammatical categories** ([det][adj][noun]), as well as more complex constructions involving, e.g., the occurrence of **sentence composition features** (e.g. transitivity) or
+adverbial types (e.g. spatial adverbials). &lt;/font&gt;
+]
+
+
 
 
 ]
@@ -213,10 +316,14 @@ The common idea is that a speaker's knowledge of his/her language consists of a 
 
 --
 
-.right-column[.font130[
-`CONTRUCTICON`
+.right-column[.font120[
+`CONTRUCTICON` 簡言之：A construction can be defined as a **form-meaning pairing** (at all levels of descriptions) in which the components cannot entirely explain the meaning of the whole.
 ]
 ]
+
+
+
+
 
 ---
 
@@ -287,6 +394,10 @@ layout: true
 --
 
 - .font80[大部分的構式具有（不同程度的）「不可預測性」的特質。（如：【X 什麼 X】具有否定、斥責）。成分與構式之間的規約與語意激發關係值得探究。]
+
+
+- .font90[情 (sentiment) 意(sense) 計算是協同發生的嗎？] （【 X 到一個 Y】）
+
 
 ---
 layout: true
@@ -365,6 +476,13 @@ Is C*G a (scientific) theory or a perspective?
 
 --
 - computational commitment
+  -  `C*G` are currently enjoying considerable attention in linguistic research, but not gaining a (central) place in different kinds of computational linguistics applications++; (.font90[但情緒分析 **sentiment analysis** 與語言習得 **language acquisition** 可能是個關鍵的著力點。]) 
+
+
+.footnote[++2010 ACL-workshop on Extracting and Using
+Constructions in Computational Linguistics' 之後就沒了]
+
+
 
 
 ---
@@ -372,7 +490,12 @@ layout: false
 
 class: inverse, center, middle
 
-# *Chinese Examples*
+# *Formosan and Chinese Examples*
+
+
+
+---
+
 
 
 ---
@@ -666,6 +789,17 @@ class: inverse, center, middle
 
 # *Corpus-based (association) measures*
 
+
+
+
+---
+# Measuring (Form-Meaning) Contingency in Corpus Linguistcs
+
+- a variety of measures of `contingency` (called **associative measures**).
+
+- relies on the `contingency table` and ....
+
+
 ---
 layout: true
 # 搭配 collogation、搭構 collostruction 與構式 construction
@@ -789,6 +923,16 @@ layout: true
 
 
 
+---
+layout: true
+# 待解決的問題
+---
+
+- **type-token distributions**
+
+- **directionality**
+
+
 
 
 
@@ -814,13 +958,18 @@ layout: true
 ---
 
 
-- `如何「辨識」構式？` `如何解決同一性`？
 
-- `如何表徵符碼與意義?` "The form and content are symbolically linked" (form-meaning pairs) but how can both to be co-represented?
+- `如何「辨識」構式？` `如何解決同一性`？&lt;br&gt;
+&lt;font color=#0000FF&gt; Unsupervised learning of construction (type/tokens)&lt;/font&gt;
 
-- `有無自然邊界？如何調節更新流動與變異？` are texts possible to be naturally chunked? reconcile varieties? roles in the understanding of the text/language? 
+- `如何表徵符碼與意義?` &lt;br&gt;
+"The form and content are symbolically linked" (form-meaning pairs) but how can both to be co-represented?
 
-- `隱性知識本體如何紬繹與回饋？` how a 'provisional unit boundary' can be detected, the 'linear unit of meaning' (linear unit grammar) be acquired and latent hierarchy can be discerned in the linear string of word forms? 
+- `有無自然邊界？如何調節在言談中的更新流動與變異？` &lt;br&gt;
+are texts possible to be naturally chunked? reconcile varieties? roles in the understanding of the text/discourse? 
+
+- `隱性構式知識本體如何紬繹與回饋？` &lt;br&gt;
+how a 'provisional unit boundary' can be detected, the 'linear unit of meaning' (linear unit grammar) be acquired and latent hierarchy can be discerned in the linear string of word forms? 
 
 
 
@@ -832,16 +981,26 @@ layout: true
 ---
 layout: true
 
-# 計算構式 [1] 如何辨識
+# [1] 構式如何辨識 ｜ form identification
 ---
 
 
+- 詞彙也許是相對穩定的構式，但從單純計量角度是矛盾的。&lt;br&gt;
+corpus-based counting of occurrence and co-occurrence seems straightforward, but require tokenization (thus assumes its boundary decision)
+
+- 靜態語料庫難以處理 dispersion 的問題  &lt;br&gt;
+aggregating token frequencies can be misleading since tokens may exhibit very uneven distributions in a corpus (and real contexts).
+
+
+&gt; Frequency answers " how often does *x* happen?" whereas dispersion asks "in how many contexts will you encounter *x* at all?" (Ellis and Gries, 2015)
 
 
 
+---
+layout: true
 
-
-
+# [2] 構式如何表徵 | meaning representation
+---
 
 
 
@@ -850,9 +1009,8 @@ layout: true
 ---
 layout: true
 
-# Computational (Lexical) Semantics
+# [3] 構式有語意理論嗎 | Constructional Semantics
 ---
-
 
 - 語言理論無法忽略語意
 
@@ -873,6 +1031,40 @@ layout: true
 
 
 
+---
+layout: true
+
+# 構式語法如何表徵語意 | meaning representation
+
+---
+
+(Usage-based perspective)
+
+- Meaning = semantics, pragmatics, discourse-functions, ...
+
+- Mental meaning is **construal** (not truth semantics), and most prominent framework is **Frame semantics** (Fillmore).
+  - encyclopedic knowledge involved.
+  - or, part of mental meaning is Frame.
+
+- So, constructions as &lt;font color=#0000FF&gt; construals of frames &lt;/font&gt;
+  - interaction of verbal frame (event type and participants) and **Argument Structure** (VAC).
+
+
+
+---
+layout: true
+# Commerce_scenario
+
+
+
+
+
+---
+layout: true
+# Argument Structure constructions
+---
+
+
 
 ---
 layout: false
@@ -880,7 +1072,33 @@ layout: false
 class: inverse, center, middle
 
 # *Computational construction grammar (and NLU)*
+
 ---
+# 在計算語言學界難被注意
+The task of &lt;font color=#0000FF&gt;form-function contingency learning&lt;/font&gt; has
+mostly been overlooked in NLP.
+
+- 難處不僅在於 form 的 type/token indentification，而在 meaning 的對應 (contingency of mapping) 是如何知道的。
+
+- 一形多義 (polysemy; multiple related senses) 與一形多用 (polyfunctionality/polycategoriality) 造成的歧義問題 &lt;br&gt;
+cues with multiple interpretations are hard to resolve
+
+- 都發生在使用/脈絡中。
+
+
+---
+# 計算心理語言模型 
+Baayen's LDA (2020).. associative learning
+
+
+- **Associative learning over the language stream** allows language users to 'find structure in time' and thus to make predictions (Elman, 1990).
+
+
+
+
+
+---
+# 想法
 
 COCOGram aims to operationalize insights and analyses from construction grammar as computational processing models.
 
@@ -907,6 +1125,47 @@ layout: true
 
 ---
 layout: true
+# 我們的初步嘗試 (1)
+---
+
+
+&lt;p align="center"&gt;
+&lt;img src="images/fluid1.png" alt="drawing" width="900"/&gt;
+&lt;/p&gt;
+
+
+
+
+
+
+---
+layout: true
+# 我們的初步嘗試 (2)
+---
+
+
+&lt;p align="center"&gt;
+&lt;img src="images/fluid2.png" alt="drawing" width="900"/&gt;
+&lt;/p&gt;
+
+
+
+
+
+
+
+---
+layout: true
+# Proposal
+---
+
+&lt;font color=#0000FF&gt;Diachronic machine learning?&lt;/font&gt;
+
+- 以歷史語料學習，逼近字典與成語典(四字格)。
+
+
+---
+layout: true
 # Proposal
 ---
 
@@ -922,9 +1181,9 @@ layout: true
 
 - `Lexicon` vs `ConstructIcon`: the latter "including words, partially filled words (aka morphemes), and representations that are larger than single words, all represented in a complex dynamic network, much as we have long known to be true of the lexicon."  
 
-
-
 - 應用先選擇情緒分析
+
+但值得嗎？
 
 
 
@@ -980,7 +1239,7 @@ layout: true
 - Sense-aware Construction/Collostructional Analysis &lt;br&gt;
 [Chinese Sense Tagger]()
 
-
+- Multimodal construction grammar
 
 
 
@@ -993,7 +1252,8 @@ layout: true
 
 - Bergen, Benjamin &amp; Nancy Chang (2005). "Embodied Construction Grammar in Simulation-Based Language Understanding". In J.-O. Östman &amp; M. Fried, ed. Construction Grammar(s): Cognitive and Cross-Language Dimensions. Amsterdam: John Benjamins. .
 - Croft, William A (2001). Radical Construction Grammar: Syntactic Theory in Typological Perspective. Oxford: Oxford University Press.
-- Croft, William A. &amp; D. Alan Cruse (200). Cognitive Linguistics. Cambridge: Cambridge University Press.
+- Croft, William A. &amp; D. Alan Cruse (2006). Cognitive Linguistics. Cambridge: Cambridge University Press.
+- Fazly, A. et al. (2009). Unsupervised Type and Token Identiﬁcation of Idiomatic Expressions.*computational linguistics 35:1*. 
 - Fillmore, Charles, Paul Kay and Catherine O'Connor (1988). "Regularity and idiomaticity in grammatical constructions: the case of let alone". Language, 64. 501-38.
 - Goldberg, Adele (1995). Constructions: A Construction Grammar Approach to Argument Structure. Chicago: University of Chicago Press.
 - Goldberg, Adele (2006). Constructions at Work: the nature of generalization in language. Oxford: Oxford University Press.
@@ -1005,12 +1265,26 @@ layout: true
 # Reference II
 ---
 
+
+- Huang, S.F.(2017). *Formosan languages and (radical) construction grammar*. Talk at GIL, NTU.
+
 - Hsieh, S.K. et al. (2017). *cognitive neurological base of idiomatic network in chinese*. ICCS.
 - Lakoff, George (1987). Women, Fire, and Dangerous Things: What Categories Reveal about the Mind. Chicago: CSLI.
 - Langacker, Ronald (1987, 1991). Foundations of Cognitive Grammar. Vols I-II. Stanford: Stanford University Press.
 - Michaelis, Laura A. &amp; Josef Ruppenhofer (2001). Beyond Alternations: A Construction-based Account of the Applicative Construction in German. Stanford: CSLI.
 
 - 王惠。(2005).從構式語法理論看漢語詞意研究。
+
+
+---
+layout: true
+
+# Reference III
+---
+
+- Herbst, Thomas. (2018). *Is language a collostruction? A proposal for looking at collocations, valency, argument structure and other constructions*.
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

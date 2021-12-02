@@ -568,12 +568,12 @@ layout: true
 ---
 layout: true
 
-# Reflections
+# 思考
 ---
 
 Is C*G a (scientific) theory or a perspective?
 
-- cognitive commitment
+- cognitive commitment: (a commitment to providing a characterization of general principles for language that accords to what is known about the mind and brain from other disciplines (Lakoff 1990)).
   - the structures of language emerge from interrelated patterns of experience, social interaction, and cognitive processes.
   
 <!-- 飛紐約 （不及物帶賓語？以飛行方式去紐約。去紐約這個位移事件被隱含在構式中）-->
@@ -582,6 +582,8 @@ Is C*G a (scientific) theory or a perspective?
 
 --
 - computational commitment
+  
+  - data friendly
   -  `C*G` are currently enjoying considerable attention in linguistic research, but not gaining a (central) place in different kinds of computational linguistics applications++; (.font90[但情緒分析 **sentiment analysis** 與語言習得 **language acquisition** 可能是個關鍵的著力點。]) 
 
 
@@ -894,8 +896,31 @@ layout: false
 
 class: inverse, center, middle
 
-# *Corpus-based (association) measures*
+# *Corpus-based measures*
 
+
+---
+# Linguistic Data
+
+常見的語料分類
+
+- <font color=#0000FF>introspective</font>: from a speaker's second-level consciousness
+
+- <font color=#0000FF>observational</font>: from recordings of corpora of linguistic production in (noisy) naturalistic settings
+
+- <font color=#0000FF>experimental</font>: from subject's behaviour in designed controlled experimental situations facing carefully developed experimental stimuli. 
+
+
+
+---
+# Observational approaches to C*G
+
+
+- Frequencies of (co-occurrence)
+
+- Conditional Probabilities (Undirectional)
+
+- Association Strengths (Bidirectional)
 
 
 
@@ -904,7 +929,7 @@ class: inverse, center, middle
 
 - a variety of measures of `contingency` (called **associative measures**).
 
-- relies on the `contingency table` and ....
+- relies on the `contingency table` based on collocational approaches from corpus linguistics.
 
 
 ---
@@ -922,6 +947,11 @@ layout: true
 
 
 <!-- ROCLING 程式實作與例子 ptt -->
+
+
+
+
+
 
 
 
@@ -972,6 +1002,21 @@ layout: true
 
 
 
+
+---
+layout: true
+# 操作定義
+---
+
+
+- <font color=#0000FF>collexeme analysis</font> computes for *n* words how strongly these words are attracted to a slot in a construction.
+
+- <font color=#0000FF>(multiple) distinctive collexeme analysis</font> computes for *n* words how strongly these words are attracted to two or more functionally similar constructions.
+
+- <font color=#0000FF>co-varying collexeme analysis</font> (item-based and system-based) computes for *n* words in one slot of a construction how strongly these words are attracted to the *y* words in another slot of the same construction.
+
+
+所有這些方法都提供 rankings of how much words and particular slots of constructions attract each other (viz. the bidirectional nature of these association measures.)
 
 
 ---
@@ -1041,6 +1086,39 @@ layout: true
 
 
 
+---
+layout: true
+# Multifactorial and Multivariate Approaches 1/
+---
+
+
+> Given (1) the obviously *multifaceted* nature of language and its relation to, or interaction with cognitive processing and (2) the complexity and noisiness of data obtained from corpora, it is often necessary to resort to statistical methods that can do better justice to the observed data.
+
+
+
+
+---
+layout: true
+# Multifactorial and Multivariate Approaches 2/
+---
+
+
+怎麼量度 **idiomaticity** on the basis of 
+  - experimental data (e.g., judgment data from subjects using the magnitude estimation method)
+  - corpus data (by operationalizing different dimensions of idiomaticity, such as `collocational overlap` and idiomatic `variation parameters` (describing morphological and syntactic parameters of the idioms's use) 
+
+再利用 PCA 等方式
+
+
+
+---
+layout: true
+# Multifactorial and Multivariate Approaches 3/
+---
+
+How to identify **prototypical instances of constructions**?
+
+- Use a linear discriminant analysis to determine which characteristics were good predictors of the constructional choices in the corpus data (Gries, 2003). Each corpus instance was assigned a discriminant score that reveals how good, or prototipical, an example of ... is.
 
 
 
@@ -1069,7 +1147,7 @@ layout: true
 - `如何「辨識」構式？` `如何解決同一性`？<br>
 <font color=#0000FF> Unsupervised learning of construction (type/tokens)</font>
 
-- `如何表徵符碼與意義?` <br>
+- `如何同時表徵符碼與意義?` <br>
 "The form and content are symbolically linked" (form-meaning pairs) but how can both to be co-represented?
 
 - `有無自然邊界？如何調節在言談中的更新流動與變異？` <br>
